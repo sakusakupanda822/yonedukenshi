@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Clicker</title>
+</head>
+<body>
+    <img id="image" src="1.webp" alt="Image" onclick="changeImage()">
+    <script>
+        var images = ["1.webp", "2.webp", "3.webp", "4.webp"]; // 画像のリスト
+        var currentImageIndex = 0; // 現在の画像のインデックス
+        var clickCount = 0; // クリック回数
+
+        function changeImage() {
+            clickCount++; // クリック回数を増やす
+            currentImageIndex = (currentImageIndex + 1) % images.length; // 次の画像のインデックスを計算
+            document.getElementById("image").src = images[currentImageIndex]; // 画像を変更
+
+            // 一定回数クリックしたら最初の画像に戻る
+            if (clickCount === images.length) {
+                clickCount = 0; // クリック回数をリセット
+                currentImageIndex = 0; // 画像のインデックスを最初に戻す
+            }
+        }
+    </script>
+</body>
+</html>
